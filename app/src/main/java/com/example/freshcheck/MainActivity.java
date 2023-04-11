@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     TimerTask timerTask;
     Double time = 0.0;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

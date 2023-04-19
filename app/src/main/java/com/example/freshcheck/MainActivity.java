@@ -1,14 +1,19 @@
 package com.example.freshcheck;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 import android.view.View;
 
@@ -21,13 +26,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
-    TextView timerText;
-    Button stopStartButton;
-
-    boolean timerStarted = false;
-    Timer timer;
-    TimerTask timerTask;
-    Double time = 0.0;
 
 
     @Override
@@ -35,87 +33,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        timerText = (TextView) findViewById(R.id.timerText);
-        stopStartButton = (Button) findViewById(R.id.circle);
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+//        bottomNav.setOnItemSelectedListener(navListener);
 
-        timer = new Timer();
-    }
-
-    public void resetTapped(View view){
-        AlertDialog.Builder resetAlert = new AlertDialog.Builder(this);
-        resetAlert.setTitle("Reset Timer");
-        resetAlert.setMessage("Are you sure you want to reset the timer?");
-        resetAlert.setPositiveButton("Reset", new DialogInterface.OnClickListener(){
+        bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i){
-                if(timerTask != null){
-                    timerTask.cancel();
-                    time = 0.0;
-                    timerStarted = false;
-                    timerText.setText(formatTime(0,0,0));
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment selectedFragment = null;
+
+                switch (item.getItemId()) {
+                    case R.id.nav_home:
+                        selectedFragment = new TimerFragment();
+                        break;
+                    case R.id.nav_graph:
+                        selectedFragment = new GraphFragment();
+                        break;
+                    case R.id.nav_garden:
+                        selectedFragment = new ProfileFragment();
+                        break;
                 }
-                timerText.setVisibility(View.INVISIBLE);
-
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        selectedFragment).commit();
+                return true;
             }
         });
-
-
-        resetAlert.setNeutralButton("Cancel", new DialogInterface.OnClickListener(){
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i){
-                // do nothing
-            }
-        });
-
-        resetAlert.show();
-
     }
-
-    public void startStopTapped(View view){
-        if(timerStarted == false) {
-            timerStarted = true;
-//            timerText = (TextView) findViewById(R.id.timerText);
-            timerText.setVisibility(View.VISIBLE);
-            stopStartButton.setText("STOP");
-            startTimer();
-        } else {
-            timerStarted = false;
-            stopStartButton.setText("START");
-            timerTask.cancel();
-        }
-    }
-
-    private void startTimer(){
-        timerTask = new TimerTask()
-        {
-            @Override
-            public void run()
-            {
-                runOnUiThread(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        time++;
-                        timerText.setText(getTimerText());
-                    }
-
-                });
-            }
-        };
-        timer.scheduleAtFixedRate(timerTask,0,1000);
-    }
-
-    private String getTimerText(){
-        int rounded = (int) Math.round(time);
-        int seconds = ((rounded % 86400) % 3600) % 60;
-        int minutes = ((rounded % 86400) % 3600) / 60;
-        int hours = ((rounded % 86400) / 3600);
-        return formatTime(seconds, minutes, hours);
-    }
-
-    private String formatTime(int seconds, int minutes, int hours){
-        return String.format("%02d",hours)+" : " + String.format("%02d",minutes)+ " : " + String.format("%02d",seconds);
-    }
-
 }

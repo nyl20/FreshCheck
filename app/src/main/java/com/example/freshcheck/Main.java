@@ -1,6 +1,7 @@
 package com.example.freshcheck;
 
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -40,6 +41,11 @@ public class Main extends AppCompatActivity {
         stopStartButton = (Button) findViewById(R.id.circle);
 
         timer = new Timer();
+        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        float savedTimerValue = prefs.getFloat("timerValue", 0.0f);
+        time = (double) savedTimerValue;
+        timerText.setText(formatTime(0, 0, 0));
+
     }
 
     public void resetTapped(View view){
@@ -51,14 +57,18 @@ public class Main extends AppCompatActivity {
             public void onClick(DialogInterface dialogInterface, int i){
                 if(timerTask != null){
                     timerTask.cancel();
+                    double timerValue = time;
                     time = 0.0;
                     timerStarted = false;
                     timerText.setText(formatTime(0,0,0));
+                    // Save the timer value in SharedPreferences
+                    SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
+                    editor.putFloat("timerValue", (float) timerValue);
+                    editor.apply();
                 }
-
+                timerText.setVisibility(View.INVISIBLE);
             }
         });
-
 
         resetAlert.setNeutralButton("Cancel", new DialogInterface.OnClickListener(){
             @Override
@@ -68,8 +78,11 @@ public class Main extends AppCompatActivity {
         });
 
         resetAlert.show();
-
     }
+
+
+
+
 
     public void startStopTapped(View view){
         if(timerStarted == false) {

@@ -91,6 +91,12 @@ public class MainActivity extends AppCompatActivity {
         resetAlert.setPositiveButton("Save", new DialogInterface.OnClickListener(){
             @Override
             public void onClick(DialogInterface dialogInterface, int i){
+                // Pass data to progress
+                Intent intent = new Intent(MainActivity.this, Progress.class);
+                intent.putExtra("time", time);
+                intent.putExtra("try", 5);
+                startActivity(intent);
+
                 if(timerTask != null){
                     timerTask.cancel();
                     time = 0.0;

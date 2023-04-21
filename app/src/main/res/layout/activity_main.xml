@@ -68,4 +68,15 @@
         android:padding="15dp"
         android:onClick="resetTapped"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Progress"
+        android:layout_gravity="center"
+        android:background="@null"
+        android:textColor="@color/darkOrange"
+        android:id="@+id/progress"
+        android:textSize="30sp"
+        android:padding="15dp" />
+
 </LinearLayout>

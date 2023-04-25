@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E6F2E3">
+
+    <ImageView
+        android:id="@+id/profile_icon"
+        android:layout_width="101dp"
+        android:layout_height="83dp"
+        android:src="@drawable/profile_icon" />
+
+    <TextView
+        android:id="@+id/full_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="John Doe"
+        android:textSize="20sp"
+        android:textColor="#4E6E53"
+        android:layout_below="@+id/profile_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/email_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="johndoe@gmail.com"
+        android:textSize="16sp"
+        android:textColor="#4E6E53"
+        android:layout_below="@+id/full_name_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/daily_goal_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Daily Goal:"
+        android:textSize="18sp"
+        android:textColor="#4E6E53"
+        android:layout_below="@+id/email_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <TimePicker
+        android:id="@+id/daily_goal_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/daily_goal_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="51dp"
+        android:background="#FFFFFF"
+        android:timePickerMode="spinner" />
+
+</RelativeLayout>

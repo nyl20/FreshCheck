@@ -49,6 +49,14 @@
         android:id="@+id/textTime"
         android:textSize="40sp"/>
 
+<!--    <com.google.android.material.tabs.TabLayout-->
+<!--        android:id="@+id/tabs"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/motionLayout">-->
+
+<!--    </com.google.android.material.tabs.TabLayout>-->
+
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/chart1"
         android:layout_width="match_parent"

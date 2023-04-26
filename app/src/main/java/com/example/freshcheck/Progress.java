@@ -2,6 +2,8 @@ package com.example.freshcheck;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,12 +17,16 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.android.material.tabs.TabLayout;
 
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 public class Progress extends AppCompatActivity {
+    TabLayout tabLayout;
+    ViewPager2 viewPager;
+    Adapter adapt;
 
     BarChart barChart;
     BarData barData;
@@ -40,6 +46,46 @@ public class Progress extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        tabLayout=(TabLayout) findViewById(R.id.tabs);
+        viewPager=(ViewPager2) findViewById(R.id.viewPager);
+        adapt= new Adapter(getSupportFragmentManager(),getLifecycle());
+
+        adapt.addFragment(new DayFragment());
+        adapt.addFragment(new WeekFragment());
+        adapt.addFragment(new YearFragment());
+
+        viewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
+        viewPager.setAdapter(adapt);
+
+        tabLayout.addTab(tabLayout.newTab().setText("Day"));
+        tabLayout.addTab(tabLayout.newTab().setText("Week"));
+        tabLayout.addTab(tabLayout.newTab().setText("Year"));
+//        tabLayout.setTabGravity(tabLayout.GRAVITY_FILL);
+
+
+//        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override public void onTabUnselected(TabLayout.Tab tab){};
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab){
+
+            }
+        });
+
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                tabLayout.selectTab(tabLayout.getTabAt(position));
+            }
+        });
 
         // Get time from Intent
         Intent intent = getIntent();

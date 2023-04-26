@@ -28,16 +28,16 @@ public class Progress extends AppCompatActivity {
     ViewPager2 viewPager;
     Adapter adapt;
 
-    BarChart barChart;
-    BarData barData;
-    BarDataSet barDataSet;
-
-    ArrayList barEntriesArrayList;
-
-    double amount;
-    int x;
-
-    TextView timeDisplay;
+//    BarChart barChart;
+//    BarData barData;
+//    BarDataSet barDataSet;
+//
+//    ArrayList barEntriesArrayList;
+//
+//    double amount;
+//    int x;
+//
+//    TextView timeDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,37 +87,28 @@ public class Progress extends AppCompatActivity {
             }
         });
 
-        // Get time from Intent
-        Intent intent = getIntent();
-        amount = intent.getDoubleExtra("time", 1.0);
-        x = intent.getIntExtra("try", 2);
-        timeDisplay = findViewById(R.id.textTime);
+//        // Get time from Intent
+//        Intent intent = getIntent();
+//        amount = intent.getDoubleExtra("time", 1.0);
+//        x = intent.getIntExtra("try", 2);
+//        timeDisplay = findViewById(R.id.textTime);
+//
+//        barChart = findViewById(R.id.chart1);
+//        getBarEntries();
+//        barDataSet = new BarDataSet(barEntriesArrayList, "progress");
+//        barData = new BarData(barDataSet);
+//        barChart.setData(barData);
+//        barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+//        barDataSet.setValueTextColor(Color.BLACK);
+//        barDataSet.setValueTextSize(16f);
+//        barChart.getDescription().setEnabled(false);
+//
+//        timeDisplay.setText(amount + "");
 
-        barChart = findViewById(R.id.chart1);
-        getBarEntries();
-        barDataSet = new BarDataSet(barEntriesArrayList, "progress");
-        barData = new BarData(barDataSet);
-        barChart.setData(barData);
-        barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
-        barDataSet.setValueTextColor(Color.BLACK);
-        barDataSet.setValueTextSize(16f);
-        barChart.getDescription().setEnabled(false);
-
-        timeDisplay.setText(amount + "");
-
-
-    }
-
-    private void getBarEntries() {
-        barEntriesArrayList = new ArrayList<>();
-        barEntriesArrayList.add(new BarEntry(1f, (float) amount));
-        barEntriesArrayList.add(new BarEntry(2f, x));
-        barEntriesArrayList.add(new BarEntry(3f, 8));
-        barEntriesArrayList.add(new BarEntry(4f, 2));
-        barEntriesArrayList.add(new BarEntry(5f, 4));
-        barEntriesArrayList.add(new BarEntry(6f, 1));
 
     }
+
+
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -128,6 +119,17 @@ public class Progress extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
+
+//    private void getBarEntries() {
+//        barEntriesArrayList = new ArrayList<>();
+//        barEntriesArrayList.add(new BarEntry(1f, (float) amount));
+//        barEntriesArrayList.add(new BarEntry(2f, x));
+//        barEntriesArrayList.add(new BarEntry(3f, 8));
+//        barEntriesArrayList.add(new BarEntry(4f, 2));
+//        barEntriesArrayList.add(new BarEntry(5f, 4));
+//        barEntriesArrayList.add(new BarEntry(6f, 1));
+//
+//    }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;

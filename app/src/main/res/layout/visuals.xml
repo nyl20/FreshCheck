@@ -62,7 +62,7 @@
 
     <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/viewPager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,11 +75,11 @@
 <!--            android:layout_gravity="top" />-->
     </androidx.viewpager2.widget.ViewPager2>
 
-    <com.github.mikephil.charting.charts.BarChart
-        android:id="@+id/chart1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+<!--    <com.github.mikephil.charting.charts.BarChart-->
+<!--        android:id="@+id/chart1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        />-->
 
 
 </LinearLayout>

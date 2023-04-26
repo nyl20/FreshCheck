@@ -8,10 +8,14 @@
     android:background="@color/beige"
     tools:context=".Main">
 
+
+
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/lightOrange">
+
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -24,7 +28,14 @@
             android:textSize="40sp"/>
 
 
+
     </androidx.appcompat.widget.Toolbar>
+    <ImageView
+        android:id="@+id/profile_icon"
+        android:layout_width="101dp"
+        android:layout_height="83dp"
+        android:src="@drawable/profile_icon" />
+
 
     <TextView
         android:layout_width="wrap_content"

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="40dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mood of the Day"
+        android:textSize="40sp"
+        android:textColor="#4E6E53"
+        android:layout_marginTop="40dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select your mood:"
+        android:textSize="40sp"
+        android:textColor="#4E6E53"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:id="@+id/thumbButtons">
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="thumb down"
+            android:id="@+id/bad"
+            android:src="@drawable/ic_baseline_thumb_down_24"
+            android:padding="40dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            app:tint = "@color/darkOrange" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="both thumb"
+            android:id="@+id/both"
+            android:src="@drawable/ic_baseline_thumbs_up_down_24"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:padding="40dp"
+            app:tint = "@color/beige" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="thumb up"
+            android:id="@+id/good"
+            android:src="@drawable/ic_baseline_thumb_up_24"
+            android:padding="40dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:tint = "@color/darkGreen" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mood of the day has been selected!"
+        android:id="@+id/confirmation"
+        android:visibility="invisible"/>
+
+
+</LinearLayout>

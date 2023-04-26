@@ -49,7 +49,9 @@ import java.util.TimerTask;
 public class MainActivity extends AppCompatActivity {
     Button visuals;
     Button profileB;
+    Button msurvey;
     TextView timerText;
+    Button resetB;
     Button stopStartButton;
 
     boolean timerStarted = false;
@@ -80,10 +82,19 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) { openProfile(); }
         });
 
+        msurvey = findViewById(R.id.survey);
+        msurvey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSurvey();
+            }
+        });
         timerText = (TextView) findViewById(R.id.timerText);
         stopStartButton = (Button) findViewById(R.id.circle);
 
         timer = new Timer();
+
+        resetB = findViewById(R.id.reset);
     }
 
     public void openProgress(){
@@ -93,6 +104,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void openProfile(){
         Intent intent = new Intent(this, Profile.class);
+        startActivity(intent);
+    }
+
+    public void openSurvey(){
+        Intent intent = new Intent(this, Survey.class);
         startActivity(intent);
     }
 
@@ -116,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
                     timerText.setText(formatTime(0,0,0));
                 }
                 timerText.setVisibility(View.INVISIBLE);
+                resetB.setVisibility(View.INVISIBLE);
 
             }
         });
@@ -137,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
             timerStarted = true;
 //            timerText = (TextView) findViewById(R.id.timerText);
             timerText.setVisibility(View.VISIBLE);
+            resetB.setVisibility(View.VISIBLE);
             stopStartButton.setText("PAUSE");
             startTimer();
         } else {

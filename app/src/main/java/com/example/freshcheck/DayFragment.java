@@ -29,6 +29,7 @@ public class DayFragment extends Fragment {
     ArrayList barEntriesArrayList;
 
     double amount;
+    int minutes;
     int x;
 
 
@@ -43,6 +44,8 @@ public class DayFragment extends Fragment {
 //         Get time from Intent
         Intent intent = getActivity().getIntent();
         amount = intent.getDoubleExtra("time", 1.0);
+        int rounded = (int) Math.round(amount);
+        minutes = ((rounded % 86400) % 3600) / 60;
         x = intent.getIntExtra("try", 2);
 
         barChart = view.findViewById(R.id.dayChart);
@@ -60,7 +63,7 @@ public class DayFragment extends Fragment {
 
     private void getBarEntries() {
         barEntriesArrayList = new ArrayList<>();
-        barEntriesArrayList.add(new BarEntry(1f, (float) amount));
+        barEntriesArrayList.add(new BarEntry(1f, (float) minutes));
         barEntriesArrayList.add(new BarEntry(2f, x));
         barEntriesArrayList.add(new BarEntry(3f, 8));
         barEntriesArrayList.add(new BarEntry(4f, 2));

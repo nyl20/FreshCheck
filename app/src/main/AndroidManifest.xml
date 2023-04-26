@@ -20,6 +20,10 @@
             android:parentActivityName=".MainActivity"
             />
         <activity
+            android:name=".Survey"
+            android:parentActivityName=".MainActivity"
+            />
+        <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             >

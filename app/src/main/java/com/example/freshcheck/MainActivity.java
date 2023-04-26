@@ -48,6 +48,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     Button visuals;
+    Button profileB;
     TextView timerText;
     Button stopStartButton;
 
@@ -69,8 +70,14 @@ public class MainActivity extends AppCompatActivity {
         visualButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openNewActivity();
+                openProgress();
             }
+        });
+
+        profileB = findViewById(R.id.profile);
+        profileB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { openProfile(); }
         });
 
         timerText = (TextView) findViewById(R.id.timerText);
@@ -79,8 +86,13 @@ public class MainActivity extends AppCompatActivity {
         timer = new Timer();
     }
 
-    public void openNewActivity(){
+    public void openProgress(){
         Intent intent = new Intent(this, Progress.class);
+        startActivity(intent);
+    }
+
+    public void openProfile(){
+        Intent intent = new Intent(this, Profile.class);
         startActivity(intent);
     }
 

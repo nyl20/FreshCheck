@@ -1,10 +1,13 @@
 package com.example.freshcheck;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -35,11 +38,14 @@ public class Progress extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.visuals);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         // Get time from Intent
         Intent intent = getIntent();
         amount = intent.getDoubleExtra("time", 1.0);
-        x= intent.getIntExtra("try", 2);
-        timeDisplay=findViewById(R.id.textTime);
+        x = intent.getIntExtra("try", 2);
+        timeDisplay = findViewById(R.id.textTime);
 
         barChart = findViewById(R.id.chart1);
         getBarEntries();
@@ -56,7 +62,7 @@ public class Progress extends AppCompatActivity {
 
     }
 
-    private void getBarEntries(){
+    private void getBarEntries() {
         barEntriesArrayList = new ArrayList<>();
         barEntriesArrayList.add(new BarEntry(1f, (float) amount));
         barEntriesArrayList.add(new BarEntry(2f, x));
@@ -65,6 +71,20 @@ public class Progress extends AppCompatActivity {
         barEntriesArrayList.add(new BarEntry(5f, 4));
         barEntriesArrayList.add(new BarEntry(6f, 1));
 
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
     }
 }
 

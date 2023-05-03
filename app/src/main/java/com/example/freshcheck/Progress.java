@@ -31,12 +31,13 @@ public class Progress extends AppCompatActivity {
 
     private ProgressBar progressBar;
     private TextView progressText;
-    int i;
+    int current;
 
     int hoursGoal;
     int minsGoal;
 
     TextView goalText;
+    TextView percentText;
 
 //    BarChart barChart;
 //    BarData barData;
@@ -58,18 +59,55 @@ public class Progress extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("My Progress");
 
-        i=50;
-        progressBar = findViewById(R.id.progress_circle);
-        progressBar.setProgress(i);
-        progressText = findViewById(R.id.progress_text);
-        progressText.setText("" + i);
-
 
         Intent getGoals = getIntent();
-        hoursGoal = getGoals.getIntExtra("hours", 0);
+        hoursGoal = getGoals.getIntExtra("hours", 2);
         minsGoal = getGoals.getIntExtra("minutes", 0);
         goalText = findViewById(R.id.goalText);
         goalText.setText("Today's Goal: " + String.format("%02d",hoursGoal)+":" + String.format("%02d",minsGoal));
+
+        progressBar = findViewById(R.id.progress_circle);
+        progressText = findViewById(R.id.progress_text);
+        percentText = findViewById(R.id.percentText);
+
+        current=50; // current mins completed hard coded to 50 for now
+        // need an if statement for if no goal set, hoursGoal is null or something?
+        int goalMins = hoursGoal * 60 + minsGoal; // get the goal in minutes from the goal input
+
+        int hoursCurrent = current / 60; // should always round down for hour
+        int minsCurrent;
+        if (hoursCurrent < 1){
+            hoursCurrent = 0; // if no hour passed, then set hour count to 0
+            minsCurrent = current;
+        } else { // else get the minutes after subtracting hours
+            minsCurrent = current - (hoursCurrent * 60);
+        }
+
+
+        float prop = (float) (current)/ (float) (goalMins);
+        int percentage = (int) (prop * 100); // percentage of the goal completed
+        progressBar.setProgress(percentage);
+        if (current < goalMins){ // current progress still less than goal
+            progressText.setText("" + hoursCurrent +" hrs " + minsCurrent + " mins");
+            percentText.setText("Percent Complete: " + percentage + "%");
+        } else { // the goal has been met
+            progressText.setText("Congrats you met the goal!");
+        }
+
+
+//        if (goalMins > 0) { // if the goal has been set
+//            int percentage = (current/goalMins) * 100; // percentage of the goal completed
+//            progressBar.setProgress(percentage);
+//            if (current < goalMins){ // current progress still less than goal
+//                progressText.setText("" + hoursCurrent +" hrs " + minsCurrent + " mins");
+//            } else { // the goal has been met
+//                progressText.setText("Congrats you met the goal!");
+//            }
+//        } else { // the goal has not been set, default will be 2 hours
+//            progressText.setText("" + hoursCurrent +" hrs " + minsCurrent + " mins");
+//        }
+
+
 
         tabLayout=(TabLayout) findViewById(R.id.tabs);
         viewPager=(ViewPager2) findViewById(R.id.viewPager);

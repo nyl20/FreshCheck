@@ -52,11 +52,15 @@
 <!--        android:textSize="40sp"/>-->
 
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TODAY"
-/>
+        android:text="Goal: --"
+        android:id="@+id/goalText"
+        android:layout_gravity="center"
+        android:textSize="25dp"
+        />
 
     <RelativeLayout
         android:layout_width="150dp"
@@ -89,13 +93,15 @@
             android:textStyle="bold"
             />
     </RelativeLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Goal: --"
-        android:id="@+id/goalText"
+        android:text="Percent done"
+        android:id="@+id/percentText"
         android:layout_gravity="center"
-        android:textSize="25dp"/>
+        android:textSize="25dp"
+        />
 
 
     <TextView

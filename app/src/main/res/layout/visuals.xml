@@ -57,6 +57,41 @@
         android:layout_height="wrap_content"
         android:text="TODAY"
 />
+
+    <RelativeLayout
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        >
+        <ProgressBar
+            android:id="@+id/progress_circle"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/circular_shape"
+            android:indeterminate="false"
+            android:progressDrawable="@drawable/circular_progress"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            android:id="@+id/progress_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="---"
+            android:textColor="@color/darkGreen"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            />
+    </RelativeLayout>
+
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

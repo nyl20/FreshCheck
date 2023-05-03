@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -27,6 +28,10 @@ public class Progress extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager2 viewPager;
     Adapter adapt;
+
+    private ProgressBar progressBar;
+    private TextView progressText;
+    int i = 0;
 
 //    BarChart barChart;
 //    BarData barData;
@@ -47,6 +52,12 @@ public class Progress extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle("My Progress");
+
+        i=50;
+        progressBar = findViewById(R.id.progress_circle);
+        progressBar.setProgress(i);
+        progressText = findViewById(R.id.progress_text);
+        progressText.setText("" + i);
 
         tabLayout=(TabLayout) findViewById(R.id.tabs);
         viewPager=(ViewPager2) findViewById(R.id.viewPager);

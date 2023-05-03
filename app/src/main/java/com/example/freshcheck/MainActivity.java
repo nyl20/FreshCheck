@@ -1,5 +1,6 @@
 package com.example.freshcheck;
 
+import android.app.ActivityOptions;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void openProgress(){
         Intent intent = new Intent(this, Progress.class);
-        startActivity(intent);
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
 
     public void openProfile(){

@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true">
+
+
+<LinearLayout
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="@color/beige">
 
@@ -56,6 +63,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="Goal: --"
         android:id="@+id/goalText"
         android:layout_gravity="center"
@@ -66,6 +74,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         >
         <ProgressBar
             android:id="@+id/progress_circle"
@@ -89,7 +98,7 @@
             android:gravity="center"
             android:text="---"
             android:textColor="@color/darkGreen"
-            android:textSize="30dp"
+            android:textSize="26dp"
             android:textStyle="bold"
             />
     </RelativeLayout>
@@ -104,20 +113,52 @@
         />
 
 
+
+
+
+
+
+    <!--    app:layout_constraintTop_toBottomOf="@+id/motionLayout"-->
+    <!--    </com.google.android.material.tabs.TabLayout>-->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:id="@+id/viewPager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+<!--        <androidx.viewpager.widget.PagerTitleStrip-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tabs"-->
+<!--            android:layout_gravity="top" />-->
+    </androidx.viewpager2.widget.ViewPager2>
+
+
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mood of the last 7 days:"
         android:textSize="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         />
-
-
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
         android:id="@+id/thumbButtons">
         <ImageButton
             android:layout_width="match_parent"
@@ -187,30 +228,6 @@
             app:tint = "@color/beige" />
     </LinearLayout>
 
-
-    <!--    app:layout_constraintTop_toBottomOf="@+id/motionLayout"-->
-    <!--    </com.google.android.material.tabs.TabLayout>-->
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabs"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/viewPager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-<!--        <androidx.viewpager.widget.PagerTitleStrip-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/tabs"-->
-<!--            android:layout_gravity="top" />-->
-    </androidx.viewpager2.widget.ViewPager2>
-
 <!--    <com.github.mikephil.charting.charts.BarChart-->
 <!--        android:id="@+id/chart1"-->
 <!--        android:layout_width="match_parent"-->
@@ -219,3 +236,4 @@
 
 
 </LinearLayout>
+</ScrollView>

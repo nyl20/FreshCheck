@@ -46,6 +46,7 @@ public class Progress extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("My Progress");
 
         tabLayout=(TabLayout) findViewById(R.id.tabs);
         viewPager=(ViewPager2) findViewById(R.id.viewPager);

@@ -68,6 +68,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        Toolbar toolBar = (Toolbar) findViewById(R.id.tools);
+//        setSupportActionBar(toolBar);
+
         Button visualButton = (Button) findViewById(R.id.progress);
 
         visualButton.setOnClickListener(new View.OnClickListener() {
@@ -207,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
-            case R.id.settings:
+            case R.id.action_settings:
                 return true;
 
             case R.id.action_profile:

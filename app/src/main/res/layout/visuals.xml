@@ -25,14 +25,14 @@
 
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Progress"
-        android:fontFamily="sans-serif"
-        android:textColor="@color/black"
-        android:layout_gravity="center"
-        android:textSize="40sp"/>
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Progress"-->
+<!--        android:fontFamily="sans-serif"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:textSize="40sp"/>-->
 <!--    <TextView-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
@@ -51,6 +51,12 @@
 <!--        android:id="@+id/textTime"-->
 <!--        android:textSize="40sp"/>-->
 
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TODAY"
+/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

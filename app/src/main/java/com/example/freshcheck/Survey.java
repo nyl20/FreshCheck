@@ -34,6 +34,7 @@ public class Survey extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Mood Survey");
 
         mood = 0;
         buttons = findViewById(R.id.thumbButtons);

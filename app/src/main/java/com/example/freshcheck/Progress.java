@@ -113,15 +113,15 @@ public class Progress extends AppCompatActivity {
         viewPager=(ViewPager2) findViewById(R.id.viewPager);
         adapt= new Adapter(getSupportFragmentManager(),getLifecycle());
 
-        adapt.addFragment(new DayFragment());
         adapt.addFragment(new WeekFragment());
+        adapt.addFragment(new MonthFragment());
         adapt.addFragment(new YearFragment());
 
         viewPager.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
         viewPager.setAdapter(adapt);
 
-        tabLayout.addTab(tabLayout.newTab().setText("Day"));
         tabLayout.addTab(tabLayout.newTab().setText("Week"));
+        tabLayout.addTab(tabLayout.newTab().setText("Month"));
         tabLayout.addTab(tabLayout.newTab().setText("Year"));
 //        tabLayout.setTabGravity(tabLayout.GRAVITY_FILL);
 

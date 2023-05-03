@@ -7,8 +7,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WEEK"
-        android:textSize="40sp"
+        android:layout_marginLeft="20dp"
+        android:text="Apr 27 - May 3"
+        android:textSize="20sp"
         android:textColor="#4E6E53" />
 
     <com.github.mikephil.charting.charts.BarChart

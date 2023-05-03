@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -17,12 +15,10 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
-import java.util.Timer;
 
-public class DayFragment extends Fragment {
+public class MonthFragment extends Fragment {
     BarChart barChart;
     BarData barData;
     BarDataSet barDataSet;
@@ -37,7 +33,7 @@ public class DayFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.day_visual, container, false);
+        return inflater.inflate(R.layout.month_visual, container, false);
     }
 
     @Override
@@ -49,7 +45,7 @@ public class DayFragment extends Fragment {
         minutes = ((rounded % 86400) % 3600) / 60;
         x = intent.getIntExtra("try", 2);
 
-        barChart = view.findViewById(R.id.dayChart);
+        barChart = view.findViewById(R.id.monthChart);
         getBarEntries();
         barDataSet = new BarDataSet(barEntriesArrayList, "progress");
         barData = new BarData(barDataSet);

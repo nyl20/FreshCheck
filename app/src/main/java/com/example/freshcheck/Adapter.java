@@ -34,12 +34,12 @@ public class Adapter extends FragmentStateAdapter {
     public Fragment getItem(int position) {
         switch(position) {
             case 0:
-                DayFragment day = new DayFragment();
-                return day;
-
-            case 1:
                 WeekFragment week = new WeekFragment();
                 return week;
+
+            case 1:
+                MonthFragment month = new MonthFragment();
+                return month;
 
             case 2:
                 YearFragment year = new YearFragment();

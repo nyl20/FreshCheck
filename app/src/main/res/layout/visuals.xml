@@ -28,28 +28,111 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Graphs"
+        android:text="Progress"
         android:fontFamily="sans-serif"
         android:textColor="@color/black"
         android:layout_gravity="center"
         android:textSize="40sp"/>
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Last Timed amount"-->
+<!--        android:fontFamily="sans-serif"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:textSize="20sp"/>-->
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Timed amount"-->
+<!--        android:fontFamily="sans-serif"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:id="@+id/textTime"-->
+<!--        android:textSize="40sp"/>-->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Timed amount"
-        android:fontFamily="sans-serif"
-        android:textColor="@color/black"
-        android:layout_gravity="center"
-        android:textSize="20sp"/>
-    <TextView
+        android:text="Mood of the last 7 days:"
+        android:textSize="30dp"
+        android:layout_marginLeft="10dp"
+        />
+
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Timed amount"
-        android:fontFamily="sans-serif"
-        android:textColor="@color/black"
-        android:layout_gravity="center"
-        android:id="@+id/textTime"
-        android:textSize="40sp"/>
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/thumbButtons">
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="thumb down"
+            android:id="@+id/bad"
+            android:src="@drawable/ic_baseline_thumb_down_24"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            app:tint = "@color/darkOrange" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="both thumb"
+            android:id="@+id/both"
+            android:src="@drawable/ic_baseline_thumbs_up_down_24"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:padding="10dp"
+            app:tint = "@color/beige" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="thumb up"
+            android:src="@drawable/ic_baseline_thumb_up_24"
+            android:padding="10dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:tint = "@color/darkGreen" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="thumb up"
+            android:src="@drawable/ic_baseline_thumb_up_24"
+            android:padding="10dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:tint = "@color/darkGreen" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="both thumb"
+            android:src="@drawable/ic_baseline_thumbs_up_down_24"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:padding="10dp"
+            app:tint = "@color/beige" />
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="thumb down"
+            android:src="@drawable/ic_baseline_thumb_down_24"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            app:tint = "@color/darkOrange" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="both thumb"
+            android:src="@drawable/ic_baseline_thumbs_up_down_24"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:padding="10dp"
+            app:tint = "@color/beige" />
+    </LinearLayout>
 
 
     <!--    app:layout_constraintTop_toBottomOf="@+id/motionLayout"-->

@@ -77,7 +77,7 @@
         android:layout_height="wrap_content"
         android:text="Mood Survey"
         android:layout_gravity="center"
-        android:background="@null"
+        android:background="@color/cardview_light_background"
         android:textColor="@color/darkOrange"
         android:id="@+id/survey"
         android:textSize="30sp"
@@ -88,22 +88,23 @@
         android:layout_height="wrap_content"
         android:text="My Progress"
         android:layout_gravity="center"
-        android:background="@null"
+        android:background="@color/cardview_light_background"
         android:textColor="@color/darkOrange"
         android:id="@+id/progress"
         android:textSize="30sp"
-        android:padding="15dp" />
+        android:padding="15dp"
+        android:layout_marginTop="15dp"/>
 
-    <Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="My Profile"
-    android:layout_gravity="center"
-    android:background="@null"
-    android:textColor="@color/darkOrange"
-    android:id="@+id/profile"
-    android:textSize="30sp"
-    android:padding="15dp" />
+<!--    <Button-->
+<!--    android:layout_width="wrap_content"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="My Profile"-->
+<!--    android:layout_gravity="center"-->
+<!--    android:background="@null"-->
+<!--    android:textColor="@color/darkOrange"-->
+<!--    android:id="@+id/profile"-->
+<!--    android:textSize="30sp"-->
+<!--    android:padding="15dp" />-->
 
 
 

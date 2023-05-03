@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.view.MenuInflater;
 import android.view.View;
 
 import android.view.Menu;
@@ -48,7 +49,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
     Button visuals;
-    Button profileB;
+//    Button profileB;
     Button msurvey;
     TextView timerText;
     Button resetB;
@@ -76,11 +77,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        profileB = findViewById(R.id.profile);
-        profileB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { openProfile(); }
-        });
+//        profileB = findViewById(R.id.profile);
+//        profileB.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) { openProfile(); }
+//        });
 
         msurvey = findViewById(R.id.survey);
         msurvey.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +96,12 @@ public class MainActivity extends AppCompatActivity {
         timer = new Timer();
 
         resetB = findViewById(R.id.reset);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
     }
 
     public void openProgress(){
@@ -195,6 +202,20 @@ public class MainActivity extends AppCompatActivity {
 
     private String formatTime(int seconds, int minutes, int hours){
         return String.format("%02d",hours)+" : " + String.format("%02d",minutes)+ " : " + String.format("%02d",seconds);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.settings:
+                return true;
+
+            case R.id.action_profile:
+                Intent intent = new Intent(this, Profile.class);
+                startActivity(intent);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }

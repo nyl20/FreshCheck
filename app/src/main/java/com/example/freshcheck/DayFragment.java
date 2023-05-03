@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -53,7 +54,13 @@ public class DayFragment extends Fragment {
         barDataSet = new BarDataSet(barEntriesArrayList, "progress");
         barData = new BarData(barDataSet);
         barChart.setData(barData);
-        barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        barDataSet.setColors(new int[] {ContextCompat.getColor(getActivity(), R.color.darkGreen),
+                ContextCompat.getColor(getActivity(), R.color.lightGreen),
+                ContextCompat.getColor(getActivity(), R.color.darkGreen),
+                ContextCompat.getColor(getActivity(), R.color.lightOrange),
+                ContextCompat.getColor(getActivity(), R.color.darkOrange),
+                ContextCompat.getColor(getActivity(), R.color.lightGreen),
+                ContextCompat.getColor(getActivity(), R.color.darkOrange)});
         barDataSet.setValueTextColor(Color.BLACK);
         barDataSet.setValueTextSize(16f);
         barChart.getDescription().setEnabled(false);

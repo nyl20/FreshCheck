@@ -102,9 +102,17 @@
         android:layout_below="@+id/location_text"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="goal"
+        android:id="@+id/ghr"
+        android:layout_above="@+id/goal_picker"
+        android:textSize="25dp"
+        android:gravity="center"/>
 
     <TimePicker
-        android:id="@+id/daily_goal_picker"
+        android:id="@+id/goal_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/daily_goal_text"
@@ -112,5 +120,17 @@
         android:layout_marginTop="51dp"
         android:background="@color/beige"
         android:timePickerMode="spinner" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/goal_picker"
+        android:background="@color/cardview_dark_background"
+        android:text="Set Goal"
+        android:textColor="@color/beige"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/setGoalButton"
+
+        />
+<!--    android:onClick="setGoal"-->
 
 </RelativeLayout>

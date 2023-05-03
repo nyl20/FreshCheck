@@ -31,7 +31,12 @@ public class Progress extends AppCompatActivity {
 
     private ProgressBar progressBar;
     private TextView progressText;
-    int i = 0;
+    int i;
+
+    int hoursGoal;
+    int minsGoal;
+
+    TextView goalText;
 
 //    BarChart barChart;
 //    BarData barData;
@@ -58,6 +63,13 @@ public class Progress extends AppCompatActivity {
         progressBar.setProgress(i);
         progressText = findViewById(R.id.progress_text);
         progressText.setText("" + i);
+
+
+        Intent getGoals = getIntent();
+        hoursGoal = getGoals.getIntExtra("hours", 0);
+        minsGoal = getGoals.getIntExtra("minutes", 0);
+        goalText = findViewById(R.id.goalText);
+        goalText.setText("Today's Goal: " + String.format("%02d",hoursGoal)+":" + String.format("%02d",minsGoal));
 
         tabLayout=(TabLayout) findViewById(R.id.tabs);
         viewPager=(ViewPager2) findViewById(R.id.viewPager);

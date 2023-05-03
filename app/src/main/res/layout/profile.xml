@@ -10,37 +10,19 @@
         android:id="@+id/profile_icon"
         android:layout_width="101dp"
         android:layout_height="83dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/baseline_person_24"
-
+        android:layout_centerHorizontal="true"
         />
-    <ImageView
-        android:id="@+id/email_icon"
-        android:layout_width="30dp"
-        android:layout_height="24dp"
-        android:src="@drawable/baseline_email_24" android:baselineAlignBottom="true"
-        android:layout_alignBaseline="@+id/email_text"
-        android:layout_toLeftOf="@+id/email_text"
-        android:layout_toStartOf="@+id/email_text" />
+<!--    <ImageView-->
+<!--        android:id="@+id/email_icon"-->
+<!--        android:layout_width="30dp"-->
+<!--        android:layout_height="24dp"-->
+<!--        android:src="@drawable/baseline_email_24" android:baselineAlignBottom="true"-->
+<!--        android:layout_alignBaseline="@+id/email_text"-->
+<!--        android:layout_toLeftOf="@+id/email_text"-->
+<!--        android:layout_toStartOf="@+id/email_text" />-->
 
-
-    <ImageView
-        android:id="@+id/phone_icon"
-        android:layout_width="30dp"
-        android:layout_height="24dp"
-        android:src="@drawable/baseline_local_phone_24" android:baselineAlignBottom="true"
-        android:layout_alignBaseline="@+id/phone_text"
-        android:layout_toLeftOf="@+id/phone_text"
-        android:layout_toStartOf="@+id/phone_text"
-
-        />
-    <ImageView
-        android:id="@+id/location_icon"
-        android:layout_width="30dp"
-        android:layout_height="24dp"
-        android:src="@drawable/baseline_location_on_24" android:baselineAlignBottom="true"
-        android:layout_alignBaseline="@+id/location_text"
-        android:layout_toLeftOf="@+id/location_text"
-        android:layout_toStartOf="@+id/location_text" />
 
     <TextView
         android:id="@+id/full_name_text"
@@ -52,64 +34,75 @@
         android:textColor="@color/black"
         android:layout_below="@+id/profile_icon"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         />
 
-    <TextView
-        android:id="@+id/email_text"
+    <LinearLayout
+        android:id="@+id/personal_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="johndoe@gmail.com"
-        android:fontFamily="sans-serif"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_below="@+id/phone_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
-    <TextView
-        android:id="@+id/phone_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="12345678"
-        android:fontFamily="sans-serif"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_below="@+id/full_name_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+        android:orientation="vertical"
+        android:layout_below="@id/full_name_text"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true">
 
-    <TextView
-        android:id="@+id/location_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lyngby, Denmark"
-        android:fontFamily="sans-serif"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:layout_below="@+id/email_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+        <TextView
+            android:id="@+id/email_text"
+            android:drawableLeft="@drawable/baseline_email_24"
+            android:drawablePadding="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="johndoe@gmail.com"
+            android:fontFamily="sans-serif"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp" />
+        <TextView
+            android:id="@+id/phone_text"
+            android:drawableLeft="@drawable/baseline_local_phone_24"
+            android:drawablePadding="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12345678"
+            android:fontFamily="sans-serif"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:id="@+id/location_text"
+            android:drawableLeft="@drawable/baseline_location_on_24"
+            android:drawablePadding="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lyngby, Denmark"
+            android:fontFamily="sans-serif"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
 
 
     <TextView
         android:id="@+id/daily_goal_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set Daily Goal:"
+        android:text="Daily Goal:"
         android:fontFamily="sans-serif"
         android:textSize="18sp"
         android:textColor="@color/black"
-        android:layout_below="@+id/location_text"
+        android:layout_below="@+id/personal_info"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="goal"
-        android:id="@+id/ghr"
-        android:layout_above="@+id/goal_picker"
-        android:textSize="25dp"
-        android:gravity="center"/>
+        android:layout_marginTop="35dp" />
+
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="goal"-->
+<!--        android:id="@+id/ghr"-->
+<!--        android:layout_above="@+id/goal_picker"-->
+<!--        android:textSize="25dp"-->
+<!--        android:gravity="center"/>-->
 
     <TimePicker
         android:id="@+id/goal_picker"
@@ -117,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/daily_goal_text"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="51dp"
+        android:layout_marginTop="5dp"
         android:background="@color/beige"
         android:timePickerMode="spinner" />
     <Button

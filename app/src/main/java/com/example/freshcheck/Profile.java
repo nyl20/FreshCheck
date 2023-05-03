@@ -29,7 +29,7 @@ public class Profile extends AppCompatActivity {
     int hours;
     int minutes;
 
-    TextView ghrs;
+//    TextView ghrs;
     Button setGoals;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -45,7 +45,7 @@ public class Profile extends AppCompatActivity {
         goal = findViewById(R.id.goal_picker);
         goal.setIs24HourView(true);
 
-        ghrs = findViewById(R.id.ghr);
+//        ghrs = findViewById(R.id.ghr);
 
         hours = 0;
         minutes = 0;
@@ -56,7 +56,7 @@ public class Profile extends AppCompatActivity {
             public void onClick(View view) {
                 hours = goal.getHour();
                 minutes = goal.getMinute();
-                ghrs.setText("hour input" + minutes);
+//                ghrs.setText("hour input" + minutes);
 
                 Intent intent = new Intent(Profile.this, Progress.class);
                 intent.putExtra("hours", hours);

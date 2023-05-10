@@ -2,6 +2,7 @@ package com.example.freshcheck;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -14,6 +15,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
@@ -35,6 +38,7 @@ public class Progress extends AppCompatActivity {
 
     int hoursGoal;
     int minsGoal;
+    int [] colors;
 
     TextView goalText;
     TextView percentText;
@@ -167,7 +171,31 @@ public class Progress extends AppCompatActivity {
 //
 //        timeDisplay.setText(amount + "");
 
+        colors = new int []
+                { (ContextCompat.getColor(this, R.color.darkOrange)),
+                        (ContextCompat.getColor(this, R.color.lightOrange)),
+                        (ContextCompat.getColor(this, R.color.lightGreen)),
+                        (ContextCompat.getColor(this, R.color.darkGreen))};
 
+
+    }
+
+    public void setLegend(BarChart chart) {
+        Legend l = chart.getLegend();
+        l.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
+        l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
+        l.setOrientation(Legend.LegendOrientation.HORIZONTAL);
+//        l.setDrawInside(false);
+        l.setEnabled(true);
+
+        LegendEntry l1 = new LegendEntry("1", Legend.LegendForm.CIRCLE, 11f, 2f, null, colors[0]);
+        LegendEntry l2 = new LegendEntry("2", Legend.LegendForm.CIRCLE, 11f, 2f, null, colors[1]);
+        LegendEntry l3 = new LegendEntry("3", Legend.LegendForm.CIRCLE, 11f, 2f, null, colors[2]);
+        LegendEntry l4 = new LegendEntry("4", Legend.LegendForm.CIRCLE, 11f, 2f, null, colors[3]);
+
+        l.setTextSize(12f);
+        l.setTextColor(Color.BLACK);
+        l.setCustom(new LegendEntry[] {l1,l2,l3,l4});
     }
 
 
@@ -182,16 +210,7 @@ public class Progress extends AppCompatActivity {
 
     }
 
-//    private void getBarEntries() {
-//        barEntriesArrayList = new ArrayList<>();
-//        barEntriesArrayList.add(new BarEntry(1f, (float) amount));
-//        barEntriesArrayList.add(new BarEntry(2f, x));
-//        barEntriesArrayList.add(new BarEntry(3f, 8));
-//        barEntriesArrayList.add(new BarEntry(4f, 2));
-//        barEntriesArrayList.add(new BarEntry(5f, 4));
-//        barEntriesArrayList.add(new BarEntry(6f, 1));
-//
-//    }
+
 
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;

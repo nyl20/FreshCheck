@@ -142,12 +142,12 @@
 <!--            android:layout_gravity="top" />-->
     </androidx.viewpager2.widget.ViewPager2>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="In Hours"
-        android:id="@+id/measure"
-        android:layout_gravity="center"/>
+<!--    <Button-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="In Hours"-->
+<!--        android:id="@+id/measure"-->
+<!--        android:layout_gravity="center"/>-->
 
 
 
@@ -172,11 +172,11 @@
             android:layout_height="match_parent"
             android:contentDescription="thumb down"
             android:id="@+id/bad"
-            android:src="@drawable/ic_baseline_thumb_down_24"
+            android:src="@drawable/ic_baseline_thumb_up_24"
             android:padding="10dp"
             android:scaleType="fitXY"
             android:adjustViewBounds="true"
-            app:tint = "@color/darkOrange" />
+            app:tint = "@color/darkGreen" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -187,7 +187,7 @@
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
             android:padding="10dp"
-            app:tint = "@color/beige" />
+            app:tint = "@color/lightGreen" />
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -201,28 +201,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="thumb up"
-            android:src="@drawable/ic_baseline_thumb_up_24"
-            android:padding="10dp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            app:tint = "@color/darkGreen" />
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="both thumb"
-            android:src="@drawable/ic_baseline_thumbs_up_down_24"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            android:padding="10dp"
-            app:tint = "@color/beige" />
-        <ImageButton
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:contentDescription="thumb down"
             android:src="@drawable/ic_baseline_thumb_down_24"
             android:padding="10dp"
-            android:scaleType="fitXY"
             android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
             app:tint = "@color/darkOrange" />
         <ImageButton
             android:layout_width="wrap_content"
@@ -232,7 +214,25 @@
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
             android:padding="10dp"
-            app:tint = "@color/beige" />
+            app:tint = "@color/lightGreen" />
+        <ImageButton
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="thumb down"
+            android:src="@drawable/ic_baseline_thumbs_up_down_24"
+            android:padding="10dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            app:tint = "@color/lightOrange" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="both thumb"
+            android:src="@drawable/ic_baseline_thumb_down_24"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:padding="10dp"
+            app:tint = "@color/darkOrange" />
     </LinearLayout>
 
 <!--    <com.github.mikephil.charting.charts.BarChart-->

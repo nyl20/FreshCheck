@@ -18,17 +18,32 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select your mood:"
+        android:text="Rate your mood:"
         android:textSize="40sp"
         android:textColor="#4E6E53"
         />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mood of the day has been selected!"
+        android:id="@+id/confirmation"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        android:layout_marginTop="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/thumbButtons">
+
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp"
-        android:id="@+id/thumbButtons">
+        android:orientation="vertical"
+        >
         <ImageButton
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -44,12 +59,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="both thumb"
-            android:id="@+id/both"
+            android:id="@+id/bothBad"
             android:src="@drawable/ic_baseline_thumbs_up_down_24"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
             android:padding="40dp"
-            app:tint = "@color/beige" />
+            app:tint = "@color/lightOrange" />
+
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="both thumb"
+            android:id="@+id/bothGood"
+            android:src="@drawable/ic_baseline_thumbs_up_down_24"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:padding="40dp"
+            app:tint = "@color/lightGreen" />
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,12 +89,48 @@
             app:tint = "@color/darkGreen" />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mood of the day has been selected!"
-        android:id="@+id/confirmation"
-        android:visibility="invisible"/>
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="40dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:text="1: Not good"
+            android:textColor = "@color/darkOrange" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="50dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:text="2: Just alright"
+            android:textColor = "@color/lightOrange" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="40dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:text="3: Feeling fine"
+            android:textColor = "@color/lightGreen" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="40dp"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"
+            android:text="4: Doing great!"
+            android:textColor = "@color/darkGreen" />
+    </LinearLayout>
+    </LinearLayout>
+
+
 
 
 </LinearLayout>

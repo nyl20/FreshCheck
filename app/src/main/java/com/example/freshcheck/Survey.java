@@ -22,7 +22,8 @@ public class Survey extends AppCompatActivity {
     int mood;
 
     ImageButton up;
-    ImageButton mix;
+    ImageButton mixGood;
+    ImageButton mixBad;
     ImageButton down;
     LinearLayout buttons;
     TextView confirm;
@@ -43,13 +44,21 @@ public class Survey extends AppCompatActivity {
         up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mood = 3;
+                mood = 4;
                 completeSurvey(view);
             }
         });
 
-        mix = (ImageButton) findViewById(R.id.both);
-        mix.setOnClickListener(new View.OnClickListener() {
+        mixGood = (ImageButton) findViewById(R.id.bothGood);
+        mixGood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mood = 3;
+                completeSurvey(view); }
+        });
+
+        mixBad = (ImageButton) findViewById(R.id.bothBad);
+        mixBad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mood = 2;

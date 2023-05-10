@@ -17,9 +17,12 @@ import android.widget.TextView;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.LegendEntry;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.tabs.TabLayout;
 
@@ -198,6 +201,29 @@ public class Progress extends AppCompatActivity {
         l.setCustom(new LegendEntry[] {l1,l2,l3,l4});
     }
 
+
+    public void barDesign(BarChart chart, String [] labels) {
+        chart.getDescription().setEnabled(false);
+
+        XAxis xAxis = chart.getXAxis();
+        xAxis.setValueFormatter(new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value) {
+                return labels[(int) value];
+            }
+        });
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setDrawGridLines(false);
+
+        YAxis axisLeft = chart.getAxisLeft();
+        axisLeft.setDrawGridLines(false);
+//        axisLeft.setGranularity(10f);
+//        axisLeft.setAxisMinimum(0);
+//
+//        YAxis axisRight = barChart.getAxisRight();
+//        axisRight.setGranularity(10f);
+//        axisRight.setAxisMinimum(0);
+    }
 
 
     public boolean onOptionsItemSelected(MenuItem item) {

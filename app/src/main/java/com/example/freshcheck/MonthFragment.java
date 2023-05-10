@@ -29,6 +29,7 @@ public class MonthFragment extends Fragment {
     BarDataSet barDataSet;
 
     ArrayList barEntriesArrayList;
+    String [] weeks = {"Week 1", "Week 2", "Week 3", "Week 4"};
 
     double amount;
     int minutes;
@@ -57,30 +58,44 @@ public class MonthFragment extends Fragment {
 
         barChart = view.findViewById(R.id.monthChart);
         getBarEntries();
+//        progress.barDesign(barChart, weeks);
+        barDesign();
         progress.setLegend(barChart);
         barDataSet = new BarDataSet(barEntriesArrayList, "progress");
         barData = new BarData(barDataSet);
         barChart.setData(barData);
-        barDataSet.setColors(new int[] {ContextCompat.getColor(getActivity(), R.color.darkGreen),
-                ContextCompat.getColor(getActivity(), R.color.lightGreen),
-                ContextCompat.getColor(getActivity(), R.color.darkGreen),
-                ContextCompat.getColor(getActivity(), R.color.lightOrange),
-                ContextCompat.getColor(getActivity(), R.color.darkOrange)});
+        barDataSet.setColors(new int[] {colors[1],
+                colors[3],
+                colors[2],
+                colors[1]});
         barDataSet.setValueTextColor(Color.BLACK);
         barDataSet.setValueTextSize(16f);
         barChart.getDescription().setEnabled(false);
 
 
     }
+    private void barDesign() {
+        XAxis xAxis = barChart.getXAxis();
+//        xAxis.setValueFormatter(new ValueFormatter() {
+//            @Override
+//            public String getFormattedValue(float value) {
+//                return months[(int) value];
+//            }
+//        });
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+        xAxis.setDrawGridLines(false);
 
+        YAxis axisLeft = barChart.getAxisLeft();
+        axisLeft.setDrawGridLines(false);
+    }
 
 
     private void getBarEntries() {
         barEntriesArrayList = new ArrayList<>();
-        barEntriesArrayList.add(new BarEntry(1f, 1));
-        barEntriesArrayList.add(new BarEntry(2f, x));
-        barEntriesArrayList.add(new BarEntry(3f, 8));
-        barEntriesArrayList.add(new BarEntry(4f, (float) minutes));
+        barEntriesArrayList.add(new BarEntry(0f, (float) 1.0));
+        barEntriesArrayList.add(new BarEntry(1f, x));
+        barEntriesArrayList.add(new BarEntry(2f, (float) 1.3));
+        barEntriesArrayList.add(new BarEntry(3f, (float) 0.5));
 
     }
 }

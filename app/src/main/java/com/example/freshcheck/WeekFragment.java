@@ -61,18 +61,18 @@ public class WeekFragment extends Fragment {
 
         barChart = view.findViewById(R.id.weekChart);
         getBarEntries();
-        barDesign();
+        progress.barDesign(barChart, days);
         progress.setLegend(barChart);
         barDataSet = new BarDataSet(barEntriesArrayList, "progress");
         barData = new BarData(barDataSet);
         barChart.setData(barData);
-        barDataSet.setColors(new int[] {ContextCompat.getColor(getActivity(), R.color.darkGreen),
-                ContextCompat.getColor(getActivity(), R.color.lightGreen),
-                ContextCompat.getColor(getActivity(), R.color.darkGreen),
-                ContextCompat.getColor(getActivity(), R.color.lightOrange),
-                ContextCompat.getColor(getActivity(), R.color.darkOrange),
-                ContextCompat.getColor(getActivity(), R.color.lightGreen),
-                ContextCompat.getColor(getActivity(), R.color.darkOrange)});
+        barDataSet.setColors(new int[] {colors[3],
+                colors[2],
+                colors[3],
+                colors[0],
+                colors[2],
+                colors[1],
+                colors[0]});
         barDataSet.setValueTextColor(Color.BLACK);
         barDataSet.setValueTextSize(16f);
 
@@ -109,12 +109,14 @@ public class WeekFragment extends Fragment {
 
     private void getBarEntries() {
         barEntriesArrayList = new ArrayList<>();
-        barEntriesArrayList.add(new BarEntry(1f, 3));
+        barEntriesArrayList.add(new BarEntry(0f, (float) 2.8));
+        barEntriesArrayList.add(new BarEntry(1f, (float) 1.2));
         barEntriesArrayList.add(new BarEntry(2f, x));
-        barEntriesArrayList.add(new BarEntry(3f, 8));
-        barEntriesArrayList.add(new BarEntry(4f, 3));
-        barEntriesArrayList.add(new BarEntry(5f, 9));
+        barEntriesArrayList.add(new BarEntry(3f, (float) 0.5));
+        barEntriesArrayList.add(new BarEntry(4f, (float) 2.1));
+        barEntriesArrayList.add(new BarEntry(5f, (float) 0.8));
         barEntriesArrayList.add(new BarEntry(6f, (float) minutes));
+
 
     }
 }

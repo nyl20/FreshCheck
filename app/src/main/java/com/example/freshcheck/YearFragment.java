@@ -61,7 +61,8 @@ public class YearFragment extends Fragment {
         barChart = view.findViewById(R.id.yearChart);
         getBarEntries();
         progress.setLegend(barChart);
-//        barDesigny();
+        barDesign();
+//        progress.barDesign(barChart, months);
         barDataSet = new BarDataSet(barEntriesArrayList, "progress");
         barData = new BarData(barDataSet);
         barChart.setData(barData);
@@ -81,18 +82,17 @@ public class YearFragment extends Fragment {
         barDataSet.setValueTextSize(12f);
         barChart.getDescription().setEnabled(false);
 
-
     }
 
 
-    private void barDesigny() {
+    private void barDesign() {
         XAxis xAxis = barChart.getXAxis();
-        xAxis.setValueFormatter(new ValueFormatter() {
-            @Override
-            public String getFormattedValue(float value) {
-                return months[(int) value];
-            }
-        });
+//        xAxis.setValueFormatter(new ValueFormatter() {
+//            @Override
+//            public String getFormattedValue(float value) {
+//                return months[(int) value];
+//            }
+//        });
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setDrawGridLines(false);
 
@@ -102,18 +102,18 @@ public class YearFragment extends Fragment {
 
     private void getBarEntries() {
         barEntriesArrayList = new ArrayList<>();
-        barEntriesArrayList.add(new BarEntry(1f, 4));
+        barEntriesArrayList.add(new BarEntry(1f, (float) 2.7));
         barEntriesArrayList.add(new BarEntry(2f, x));
-        barEntriesArrayList.add(new BarEntry(3f, 2));
-        barEntriesArrayList.add(new BarEntry(4f, 8));
-        barEntriesArrayList.add(new BarEntry(5f, 7));
-        barEntriesArrayList.add(new BarEntry(6f, 3));
-        barEntriesArrayList.add(new BarEntry(7f, 7));
-        barEntriesArrayList.add(new BarEntry(8f, 2));
-        barEntriesArrayList.add(new BarEntry(9f, 7));
-        barEntriesArrayList.add(new BarEntry(10f, 5));
-        barEntriesArrayList.add(new BarEntry(11f, 6));
-        barEntriesArrayList.add(new BarEntry(12f, (float) minutes));
+        barEntriesArrayList.add(new BarEntry(3f, (float) 3.3));
+        barEntriesArrayList.add(new BarEntry(4f, (float) 0.9));
+        barEntriesArrayList.add(new BarEntry(5f, (float) 0.4));
+        barEntriesArrayList.add(new BarEntry(6f, (float) 1.0));
+        barEntriesArrayList.add(new BarEntry(7f, (float) 1.4));
+        barEntriesArrayList.add(new BarEntry(8f, (float) 1.9));
+        barEntriesArrayList.add(new BarEntry(9f, (float) 0.7));
+        barEntriesArrayList.add(new BarEntry(10f, (float) 0.25));
+        barEntriesArrayList.add(new BarEntry(11f, (float) 2.0));
+        barEntriesArrayList.add(new BarEntry(12f, (float) 0.5));
 
     }
 }
